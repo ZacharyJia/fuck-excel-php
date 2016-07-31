@@ -4,9 +4,17 @@ php:
   - '7.0'
   - hhvm
 
+addons:
+  apt:
+    sources:
+    - mongodb-3.0-precise
+    packages:
+    - mongodb-org-server
+
+
 before_script:
+  - pecl install mongodb
   - cp .env.travis .env
-  - echo "extension = mongo.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
   - composer self-update
   - composer install --no-interaction
 
