@@ -23,3 +23,6 @@ script:
 
 service:
   - mongodb
+
+notifications:
+  webhooks: https://hook.bearychat.com/=bw8Px/travis/f259b29d3c7b88076f2da0cfd18d1490
