@@ -1,9 +1,7 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: zachary
- * Date: 16/7/31
- * Time: 上午10:46
+ * Created by zachary
+ * Date: 16/7/31 上午10:46
  */
 
 namespace App\Http\Controllers;
