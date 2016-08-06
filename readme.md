@@ -3,16 +3,28 @@
 自定义表单系统。
 基于Laravel和Mongodb
 
+##搭建准备
 
-##环境配置
+* php >= 5.5.9
+* php 拓展 mongodb  ( 以及 laravel 开发文档中 php 拓展 )
+* mongdb
+* composer
+* apache or nignx
+* git
 
 
-### mongdb
+##环境配置步骤
+
+
+### mongdb准备
 
 [mongdb下载](https://www.mongodb.com/download-center?jmp=nav#community) 
 
 [php-mongdb依赖下载](http://pecl.php.net/package/mongodb)
 ps:安装前 php_info() 检查php 版本号 线程安全  x86 or 64 配置方法自行查阅
+
+
+###laravel环境配置
 
 克隆仓库
 
@@ -20,16 +32,11 @@ ps:安装前 php_info() 检查php 版本号 线程安全  x86 or 64 配置方法
 
 进入仓库目录下 执行 
 
-``` composer require jenssegers/mongodb ```
+``` composer install ```
 
-出错的可以执行如下
+ps: linux 和 osx 下注意 storage 和 bootstrap/cache 目录应该是可写的
 
-``` composer require jenssegers/mongodb --ignore-platform-reqs``` 忽略版本差异
-
-###laravel环境配置
-
-
-目录下
+在项目目录下
 
 ``` cp .env.example .env```
 
@@ -39,16 +46,6 @@ ps:安装前 php_info() 检查php 版本号 线程安全  x86 or 64 配置方法
 
 
 config目录下
-
-配置app.php
-
-在providers中添加
-
-``` Jenssegers\Mongodb\MongodbServiceProvider::class, ```
-
-在aliases出添加如下代码
-
-``` 'Mongo'     => Jenssegers\Mongodb\MongodbServiceProvider::class, ```
 
 配置database.php
 
