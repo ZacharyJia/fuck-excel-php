@@ -9,7 +9,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\Session;
+use Session;
 
 class BaseController extends Controller
 {

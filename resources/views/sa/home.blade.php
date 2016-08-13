@@ -5,5 +5,7 @@
 </head>
 <body>
 @include('sa.nav')
+
+@include('common.footer')
 </body>
 </html>

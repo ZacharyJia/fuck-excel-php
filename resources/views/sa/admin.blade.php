@@ -19,7 +19,7 @@
                 success : function(data) {
                     $("#new_username").val(data.username);
                     $("#new_tags").val(data.tags);
-                    $("#admin_id").val(data.id);
+                    $("#admin_id").val(data._id);
                 },
                 error   : function() {
 
@@ -52,7 +52,7 @@
                         </div>
                         <div class="form-group">
                             <label for="password">密码(英文、数字和特殊符号)</label>
-                            <input type="text" class="form-control" id="password" name="password">
+                            <input type="password" class="form-control" id="password" name="password">
                         </div>
                         <div class="form-group">
                             <label for="tags">标签(多个标签以英文逗号隔开)</label>
@@ -85,7 +85,7 @@
                         </div>
                         <div class="form-group">
                             <label for="password">密码(英文、数字和特殊符号)</label>
-                            <input type="text" class="form-control" id="new_password" name="new_password" placeholder="不改请留空">
+                            <input type="password" class="form-control" id="new_password" name="new_password" placeholder="不改请留空">
                         </div>
                         <div class="form-group">
                             <label for="tags">标签(多个标签以英文逗号隔开)</label>
@@ -109,22 +109,29 @@
             <th>操作</th>
             </thead>
             <tbody>
-            {{--<c:forEach items="${admins}" var="admin">--}}
-                {{--<tr>--}}
-                    {{--<td>${admin.username}</td>--}}
-                    {{--<td>--}}
-                        {{--<c:forEach items="${admin.tags}" var="tag"> <span class="label label-success">${tag}</span> </c:forEach>--}}
-                    {{--</td>--}}
-                    {{--<td>--}}
-                        {{--<a href="#" class="btn btn-default" data-toggle="modal" data-target="#editAdminModal" onclick="ajax_get_admin_info('${admin.id}')"><span class="glyphicon glyphicon-pencil"></span></a>--}}
-                        {{--<a href="/sa/admins/delete?id=${admin.id}" class="btn btn-default" onclick="return deleteConfirm()"><span class="glyphicon glyphicon-trash"></span></a>--}}
-                    {{--</td>--}}
-                {{--</tr>--}}
-            {{--</c:forEach>--}}
+
+            @foreach ($adminList as $admin)
+                <tr>
+                    <td>{{ $admin['username'] }}</td>
+                    <td>
+                        @foreach($admin['tags'] as $tag)
+                            <span class="label label-success">{{ $tag }}</span>
+                        @endforeach
+                    </td>
+                    <td>
+                        <a href="#" class="btn btn-default" data-toggle="modal" data-target="#editAdminModal" onclick="ajax_get_admin_info('{{ $admin['_id'] }}')"><span class="glyphicon glyphicon-pencil"></span></a>
+                        <a href="/sa/admins/delete?id={{$admin['_id']}}" class="btn btn-default" onclick="return deleteConfirm()"><span class="glyphicon glyphicon-trash"></span></a>
+                    </td>
+                </tr>
+            @endforeach
+
             </tbody>
         </table>
+        {{ $adminList->links() }}
+
     </div>
 </div>
 
+@include('common.footer')
 </body>
 </html>

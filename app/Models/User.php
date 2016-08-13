@@ -2,15 +2,21 @@
 namespace App;
 
 use Jenssegers\Mongodb\Eloquent\Model;
+use Jenssegers\Mongodb\Eloquent\SoftDeletes;
+
 /**
  * Created by zachary
  * Date: 16/7/31 上午9:32
  */
 class User extends Model
 {
+    use SoftDeletes;
+
     private static $user;
 
     protected $collection = 'user';
+
+    protected $hidden = ['password'];
 
     /**
      * 设置当前用户

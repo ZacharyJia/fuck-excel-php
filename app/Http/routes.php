@@ -24,7 +24,13 @@ Route::group([
     'prefix'     => 'sa',
 ], function (){
     Route::get('home', 'Sa\HomeController@index');
-    Route::get('admins', 'Sa\AdminController@index');
+    Route::group(['prefix' => 'admins'], function () {
+        Route::get('/', 'Sa\AdminController@index');
+        Route::post('get', 'Sa\AdminController@getAdmin');
+        Route::post('add', 'Sa\AdminController@add');
+        Route::get('delete', 'Sa\AdminController@delete');
+        Route::post('edit', 'Sa\AdminController@edit');
+    });
 });
 
 

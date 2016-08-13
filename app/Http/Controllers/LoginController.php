@@ -8,11 +8,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Middleware\Authenticate;
 use App\User;
-use Illuminate\Auth\Authenticatable;
-use Illuminate\Contracts\Auth\Guard;
 use Request;
-use Illuminate\Support\Facades\Session;
-use Auth;
+use Session;
 
 class LoginController extends BaseController
 {
