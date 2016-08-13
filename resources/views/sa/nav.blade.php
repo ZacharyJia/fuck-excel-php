@@ -12,14 +12,14 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href="home">主页<span class="sr-only">(current)</span></a></li>
+                <li @if(isset($home)) class="active @endif"><a href="home">主页<span class="sr-only">(current)</span></a></li>
                 <li @if(isset($admins)) class="active" @endif><a href="admins">管理员管理</a></li>
                 <li @if(isset($users)) class="active" @endif><a href="users">用户管理</a></li>
                 <li @if(isset($tags)) class="active" @endif><a href="tags">标签管理</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">${superAdmin.username}<span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ $user['username'] }}<span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="/logout">退出</a></li>
                     </ul>

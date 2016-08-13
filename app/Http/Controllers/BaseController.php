@@ -13,6 +13,13 @@ use Illuminate\Support\Facades\Session;
 
 class BaseController extends Controller
 {
+    public function __construct()
+    {
+        view()->share([
+            'user' => User::getCurrentUser(),
+        ]);
+    }
+
     /**
      * 判断当前用户是否登录
      * @return bool

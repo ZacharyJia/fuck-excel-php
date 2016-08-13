@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>系统管理</title>
+    <title>管理员管理</title>
     @include('common.include')
     <script type="text/javascript">
         function deleteConfirm() {

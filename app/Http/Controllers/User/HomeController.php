@@ -10,7 +10,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\BaseController;
 use Illuminate\Http\Request;
 
-class UserController extends BaseController
+class HomeController extends BaseController
 {
     public function index(Request $request)
     {

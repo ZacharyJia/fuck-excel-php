@@ -23,7 +23,8 @@ Route::group([
     'middleware' => 'auth:sa',
     'prefix'     => 'sa',
 ], function (){
-    Route::get('home', ['uses' => 'Sa\SaController@index']);
+    Route::get('home', 'Sa\HomeController@index');
+    Route::get('admins', 'Sa\AdminController@index');
 });
 
 
