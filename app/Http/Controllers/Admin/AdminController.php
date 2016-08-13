@@ -4,7 +4,10 @@
  * Created By zachary
  * Time: 16/8/13 下午1:09
  */
-class AdminController
+namespace App\Http\ControllersAdmin;
+
+
+class AdminController extends BaseController
 {
 
 }

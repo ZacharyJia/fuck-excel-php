@@ -19,25 +19,26 @@ Route::post('doLogin', 'LoginController@doLogin');
 Route::get('logout', 'LoginController@logout');
 
 //这里是需要鉴权为sa的
-Route::group(['middleware' => 'auth:sa'], function (){
-    Route::get('/', function () {
-
-        return view('sa.sa', ['users' => 123]);
-    });
-
-    Route::get('sa/home', function () {
-        return view('sa.sa', ['admins'=>123]);
-    });
-
+Route::group([
+    'middleware' => 'auth:sa',
+    'prefix'     => 'sa',
+], function (){
+    Route::get('home', ['uses' => 'Sa\SaController@index']);
 });
 
 
 //这里是需要鉴权为user的
-Route::group(['middleware' => 'auth:user'], function (){
+Route::group([
+    'middleware' => 'auth:user',
+    'prefix'     => 'user',
+], function (){
 
 });
 
 //这里是需要鉴权为admin的
-Route::group(['middleware' => 'auth:admin'], function () {
+Route::group([
+    'middleware' => 'auth:admin',
+    'prefix'     => 'admin',
+], function () {
 
 });

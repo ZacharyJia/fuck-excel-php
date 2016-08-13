@@ -24,7 +24,7 @@ class BaseController extends Controller
 
     /**
      * 设置在下一个页面将显示给用户的提示
-     * @param $msg 提示内容
+     * @param string $msg
      * @param string $type 提示的类型,目前有 success, error, alert, warning 四种
      */
     public function setMsg($msg, $type='alert')
