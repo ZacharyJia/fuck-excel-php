@@ -42,23 +42,14 @@ ps: linux 和 osx 下注意 storage 和 bootstrap/cache 目录应该是可写的
 
 ```php artisan key:generate ```
 
-在.env文件中设置数据库
-
-
-config目录下
-
-配置database.php
-
-``` 'default' => env('DB_CONNECTIOND', 'mongodb') ```
-
+然后在.env文件中配置数据库
+参考配置如下:
 ```
-'mongodb' => [ 
-            'driver'   => 'mongodb',
-            'host'     => 'localhost',
-            'port'     => 27017,
-            'database' => 'test',
-            'username' => '', 
-            'password' => '', 
-        ],
+DB_CONNECTION=mongodb
+DB_HOST=127.0.0.1
+DB_PORT=27017
+DB_DATABASE=fuckexcel
+DB_USERNAME=
+DB_PASSWORD=
 ```
-配置完成，有问题请google
+PS:默认情况下mongodb在本地运行,且不需要权限验证。
