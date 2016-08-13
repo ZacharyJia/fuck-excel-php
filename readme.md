@@ -1,7 +1,11 @@
 # FuckExcel
 
+![Travis-CI](https://travis-ci.org/ZacharyJia/fuck-excel-php.svg?branch=dev)
+
 自定义表单系统。
-基于Laravel和Mongodb
+基于Laravel和Mongodb。
+
+可以通过tag控制填写权限。
 
 ##搭建准备
 
@@ -24,7 +28,7 @@
 ps:安装前 php_info() 检查php 版本号 线程安全  x86 or 64 配置方法自行查阅
 
 
-###laravel环境配置
+### laravel环境配置
 
 克隆仓库
 
