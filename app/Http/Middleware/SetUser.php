@@ -2,14 +2,16 @@
 
 namespace App\Http\Middleware;
 
-use App\User;
 use Closure;
 use Session;
+use App\User;
 
-class AuthCheck
+class SetUser
 {
     /**
      * Handle an incoming request.
+     *
+     * 将登录用户信息存储到User类中
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
@@ -17,11 +19,11 @@ class AuthCheck
      */
     public function handle($request, Closure $next)
     {
-        if (!User::getCurrentUser()) {
-            Session::set('msg', ['msg' => '还未登录或登录已过期', 'type' => 'error']);
-            return redirect('/login');
+        if (Session::has('user')) {
+            User::setCurrentUser(Session::get('user'));
+        } else {
+            User::setCurrentUser(null);
         }
-
         return $next($request);
     }
 }

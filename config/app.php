@@ -159,6 +159,7 @@ return [
         /*
          * Third Party Service Providers...
          */
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Jenssegers\Mongodb\MongodbServiceProvider::class,
 
     ],
