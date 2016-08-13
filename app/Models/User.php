@@ -16,7 +16,7 @@ class User extends Model
      * 设置当前用户
      * @param User $user
      */
-    public static function setCurrentUser(User $user)
+    public static function setCurrentUser($user)
     {
         User::$user = $user;
     }

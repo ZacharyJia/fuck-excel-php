@@ -7,6 +7,7 @@
 namespace App\Http\Controllers;
 
 
+use App\User;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Session;
 
@@ -18,24 +19,7 @@ class BaseController extends Controller
      */
     public function isLogin()
     {
-        if (Session::get('user', null) !== null) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    /**
-     * 获取当前用户,如果没有登录,返回false
-     * @return bool
-     */
-    public function currentUser()
-    {
-        if ($this->isLogin()) {
-            return Session::get('user');
-        } else {
-            return false;
-        }
+        return User::getCurrentUser() ? true : false;
     }
 
     /**

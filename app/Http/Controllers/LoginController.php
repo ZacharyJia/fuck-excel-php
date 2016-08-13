@@ -20,7 +20,7 @@ class LoginController extends BaseController
     public function login()
     {
         if ($this->isLogin()) {
-            $user = $this->currentUser();
+            $user = User::getCurrentUser();
             return redirect('/' . $user['type'] . '/home');
         }
         return view('login');
