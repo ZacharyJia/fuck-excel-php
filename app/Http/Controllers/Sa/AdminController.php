@@ -8,10 +8,10 @@ namespace app\Http\Controllers\Sa;
 
 
 use App\Http\Controllers\BaseController;
-use App\User;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
 use Validator;
+use App\Models\User;
 
 class AdminController extends BaseController
 {

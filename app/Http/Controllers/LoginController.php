@@ -6,8 +6,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Middleware\Authenticate;
-use App\User;
+use App\Models\User;
 use Request;
 use Session;
 

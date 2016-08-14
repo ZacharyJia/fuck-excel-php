@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Session;
-use App\User;
+use App\Models\User;
 
 class SetUser
 {

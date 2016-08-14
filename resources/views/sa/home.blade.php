@@ -1,11 +1,11 @@
-<html>
-<head>
-    @include('common.include')
-    <title>系统管理</title>
-</head>
-<body>
-@include('sa.nav')
+@extends('sa.sa')
 
-@include('common.footer')
-</body>
-</html>
+@section('title')
+    主页
+@endsection
+@section('content')
+@endsection
+
+
+@section('script')
+@endsection

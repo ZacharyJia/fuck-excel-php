@@ -1,7 +1,10 @@
-<html>
-<head>
-    <title>管理员管理</title>
-    @include('common.include')
+@extends('sa.sa')
+
+@section('title')
+    管理员管理
+@endsection
+
+@section('script')
     <script type="text/javascript">
         function deleteConfirm() {
             return confirm("删除后不可恢复,确定要删除吗?");
@@ -27,10 +30,9 @@
             })
         }
     </script>
-</head>
-<body>
-@include('sa.nav')
+@endsection
 
+@section('content')
 <div class="container">
     <div class="col-sm-2">
         <button class="btn btn-block btn-primary" data-toggle="modal" data-target="#addAdminModal">增加管理员</button>
@@ -132,6 +134,4 @@
     </div>
 </div>
 
-@include('common.footer')
-</body>
-</html>
+@endsection
