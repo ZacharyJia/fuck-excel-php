@@ -12,9 +12,9 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li @if(isset($home)) class="active @endif"><a href="home">主页<span class="sr-only">(current)</span></a></li>
-                <li @if(isset($forms)) class="active" @endif><a href="forms">表单管理</a></li>
-                <li @if(isset($users)) class="active" @endif><a href="users">用户管理</a></li>
+                <li @if(isset($home)) class="active @endif"><a href="/admin/home">主页<span class="sr-only">(current)</span></a></li>
+                <li @if(isset($forms)) class="active" @endif><a href="/admin/forms">表单管理</a></li>
+                <li @if(isset($users)) class="active" @endif><a href="/admin/users">用户管理</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">

@@ -9,3 +9,6 @@
 
 <script src="/static/js/jquery.noty.packaged.min.js"></script>
 <script src="/static/js/notyutil.js"></script>
+
+<script src="/static/js/jquery.gridly.js" type="text/javascript"></script>
+<link href="/static/css/jquery.gridly.css" rel="stylesheet" type="text/css" />

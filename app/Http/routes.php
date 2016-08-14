@@ -53,6 +53,7 @@ Route::group([
 
     Route::group(['prefix' => 'forms'], function (){
         Route::get('/', 'Admin\FormController@index');
+        Route::get('add', 'Admin\FormController@add');
     });
 
     Route::group(['prefix' => 'users'], function (){

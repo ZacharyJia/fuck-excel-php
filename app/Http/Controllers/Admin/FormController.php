@@ -23,4 +23,9 @@ class FormController extends BaseController
     {
         return view('admin.forms');
     }
+
+    public function add()
+    {
+        return view('admin.add_form');
+    }
 }
