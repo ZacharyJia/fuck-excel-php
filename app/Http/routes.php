@@ -50,4 +50,8 @@ Route::group([
     Route::group(['prefix' => 'home'], function (){
         Route::get('/', 'Admin\HomeController@home');
     });
+
+    Route::group(['prefix' => 'forms'], function (){
+        Route::get('/', 'Admin\FormController@index');
+    });
 });
