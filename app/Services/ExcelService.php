@@ -11,17 +11,17 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class ExcelService
 {
-    public function importExcel($fileName){
-        Excel::load($fileName,function($reader){
+    public static function importExcel($fileName){
+        $array= [];
+        Excel::load($fileName,function($reader) use (&$array){
             //获取excel的第1张表
             $reader = $reader->getSheet(0);
             //获取表中的数据
-            $results = $reader->toArray();
-
-            return $results;
+            $array = $reader->toArray();
         });
+        return $array;
     }
-    public function exportExcel( $cellData,$excelName = 'FuckExcel',$sheetName = 'FuckSheet'){
+    public static function exportExcel( $cellData,$excelName = 'FuckExcel',$sheetName = 'FuckSheet'){
 
             Excel::create($excelName,function($excel) use ($cellData,$sheetName){
                 $excel->sheet($sheetName, function($sheet) use ($cellData){
