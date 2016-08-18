@@ -11,7 +11,7 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class ExcelService
 {
-    public static $Type = ['xlsx', 'xls'];
+    public $type = ['xlsx', 'xls'];
 
     public function importExcel($fileName)
     {
@@ -25,7 +25,7 @@ class ExcelService
 
     public function exportExcel($cellData, $excelName, $sheetName, $excelType)
     {
-        if (in_array($excelType, ExcelService::$Type)) {
+        if (in_array($excelType, $this->type)) {
             Excel::create($excelName, function ($excel) use ($cellData, $sheetName) {
                 $excel->sheet($sheetName, function ($sheet) use ($cellData) {
                     $sheet->rows($cellData);
@@ -39,7 +39,7 @@ class ExcelService
 
     public function storeExcel($cellData, $excelName, $sheetName, $excelType)
     {
-        if (in_array($excelType, ExcelService::$Type)) {
+        if (in_array($excelType, $this->type)) {
             Excel::create($excelName, function ($excel) use ($cellData, $sheetName) {
                 $excel->sheet($sheetName, function ($sheet) use ($cellData) {
                     $sheet->rows($cellData);
