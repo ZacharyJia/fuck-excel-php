@@ -11,30 +11,43 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class ExcelService
 {
-    public static function importExcel($fileName){
-        $array= [];
-        Excel::load($fileName,function($reader) use (&$array){
-            //获取excel的第1张表
-            $sheet = $reader->getSheet(0);
+    public static $Type = ['xlsx', 'xls'];
+
+    public function importExcel($fileName)
+    {
+        $array = [];
+        Excel::load($fileName, function ($reader) use (&$array) {
             //获取表中的数据
-            $array = $sheet->toArray();
-        },'UTF-8');
+            $array = $reader->get()->toArray();
+        }, 'UTF-8');
         return $array;
     }
-    public static function exportExcel( $cellData,$excelName = 'FuckExcel',$sheetName = 'FuckSheet'){
 
-            Excel::create($excelName,function($excel) use ($cellData,$sheetName){
-                $excel->sheet($sheetName, function($sheet) use ($cellData){
+    public function exportExcel($cellData, $excelName, $sheetName, $excelType)
+    {
+        if (in_array($excelType, ExcelService::$Type)) {
+            Excel::create($excelName, function ($excel) use ($cellData, $sheetName) {
+                $excel->sheet($sheetName, function ($sheet) use ($cellData) {
                     $sheet->rows($cellData);
                 });
-            })->export('xls');
+            })->export($excelType);
+            return true;
+        } else {
+            return false;
         }
-    public static function storeExcel( $cellData,$excelName = 'FuckExcel',$sheetName = 'FuckSheet'){
+    }
 
-        Excel::create($excelName,function($excel) use ($cellData,$sheetName){
-            $excel->sheet($sheetName, function($sheet) use ($cellData){
-                $sheet->rows($cellData);
-            });
-        })->store('xls');
+    public function storeExcel($cellData, $excelName, $sheetName, $excelType)
+    {
+        if (in_array($excelType, ExcelService::$Type)) {
+            Excel::create($excelName, function ($excel) use ($cellData, $sheetName) {
+                $excel->sheet($sheetName, function ($sheet) use ($cellData) {
+                    $sheet->rows($cellData);
+                });
+            })->store($excelType);
+            return true;
+        } else {
+            return false;
+        }
     }
 }

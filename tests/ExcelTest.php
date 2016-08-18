@@ -12,15 +12,19 @@ class ExcelTest extends TestCase
      */
     public function testExample()
     {
-        $arr = [
-            ['吴泽凯','B','C'],
-            ['D','E','F'],
-            ['G','H','I'],
+        $import = [
+            ['姓名','年龄','性别'],
+            ['吴泽凯','19','男'],
+            ['时崎狂三','16','女'],
+        ];
+        $export = [
+            ['姓名'=>'吴泽凯','年龄'=>'19','性别'=>'男'],
+            ['姓名'=>'时崎狂三','年龄'=>'16','性别'=>'女'],
         ];
         $excel = $this->app->make('excel_ops');
-        $excel->storeExcel($arr);
-        $value = $excel->importExcel('storage\exports\FuckExcel.xls');
-        $this->assertTrue($arr == $value);
+        $excel->storeExcel($import,'FuckExcel','FuckSheet','xlsx');
+        $value = $excel->importExcel('storage/exports/FuckExcel.xlsx');
+        $this->assertTrue($value == $export);
 
     }
 }

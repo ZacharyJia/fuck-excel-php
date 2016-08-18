@@ -25,7 +25,7 @@ class ExcelServiceProvider extends ServiceProvider
     public function register()
     {
         //
-        $this->app->bind('excel_ops',function(){
+        $this->app->singleton('excel_ops',function(){
             return new ExcelService;
         });
     }
