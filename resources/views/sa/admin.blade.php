@@ -112,17 +112,17 @@
             </thead>
             <tbody>
 
-            @foreach ($adminList as $admin)
+            @foreach ($adminList as $one)
                 <tr>
-                    <td>{{ $admin['username'] }}</td>
+                    <td>{{ $one['username'] }}</td>
                     <td>
-                        @foreach($admin['tags'] as $tag)
+                        @foreach($one['tags'] as $tag)
                             <span class="label label-success">{{ $tag }}</span>
                         @endforeach
                     </td>
                     <td>
-                        <a href="#" class="btn btn-default" data-toggle="modal" data-target="#editAdminModal" onclick="ajax_get_admin_info('{{ $admin['_id'] }}')"><span class="glyphicon glyphicon-pencil"></span></a>
-                        <a href="/sa/admins/delete?id={{$admin['_id']}}" class="btn btn-default" onclick="return deleteConfirm()"><span class="glyphicon glyphicon-trash"></span></a>
+                        <a href="#" class="btn btn-default" data-toggle="modal" data-target="#editAdminModal" onclick="ajax_get_admin_info('{{ $one['_id'] }}')"><span class="glyphicon glyphicon-pencil"></span></a>
+                        <a href="/sa/admins/delete?id={{$one['_id']}}" class="btn btn-default" onclick="return deleteConfirm()"><span class="glyphicon glyphicon-trash"></span></a>
                     </td>
                 </tr>
             @endforeach

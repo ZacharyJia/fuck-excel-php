@@ -8,6 +8,8 @@ namespace App\Http\Controllers\Admin;
 
 
 use App\Http\Controllers\BaseController;
+use App\Models\User;
+use Illuminate\Http\Request;
 
 class UserController extends BaseController
 {
@@ -21,7 +23,42 @@ class UserController extends BaseController
 
     public function index()
     {
-        return view('admin.users');
+        $user_list = User::where('type', 'user')->paginate(10);
+
+        return view('admin.users', ['user_list' => $user_list]);
     }
 
+    public function detail(Request $request)
+    {
+        $user_id = $request->input('id');
+        $user = User::find($user_id);
+        if ($user) {
+            return view('admin.user_detail', ['user' => $user]);
+        }
+        else {
+            $this->setMsg("用户不存在");
+        }
+    }
+
+    // @todo 所有的AJAX都需要验证该管理员对该用户是否有操作权限
+
+    public function ajax_get_tags(Request $request) {
+        $user_id = $request->input('id');
+        $user = User::find($user_id);
+        return json_encode(['tags' => $user['tags']]);
+    }
+
+    public function ajax_save_tags(Request $request) {
+        $user_id = $request->input('pk');
+        $tags = $request->input('value');
+        $user = User::find($user_id);
+
+        // todo 需要验证是否符合要求
+        $user['tags'] = $tags;
+        if ($user->save()) {
+            return json_encode(['code' => 0]);
+        } else {
+            return json_encode(['code' => -1, 'msg' => '出现错误']);
+        }
+    }
 }

@@ -58,5 +58,8 @@ Route::group([
 
     Route::group(['prefix' => 'users'], function (){
         Route::get('/', 'Admin\UserController@index');
+        Route::get('detail', 'Admin\UserController@detail');
+        Route::get('ajax_get_tags', 'Admin\UserController@ajax_get_tags');
+        Route::post('ajax_save_tags', 'Admin\UserController@ajax_save_tags');
     });
 });

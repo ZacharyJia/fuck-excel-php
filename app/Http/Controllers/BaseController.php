@@ -15,7 +15,7 @@ class BaseController extends Controller
     public function __construct()
     {
         view()->share([
-            'user' => User::getCurrentUser(),
+            'login_user' => User::getCurrentUser(),
         ]);
     }
 
