@@ -39,7 +39,7 @@
             value: "{{ implode($user['tags'], ',') }}",
             select2: {
                 allowClear: true,
-                tags: true,
+                tags: [@foreach($login_user['tags'] as $tag) "{{ $tag }}", @endforeach],
                 width: 200,
                 placeholder: '用户标签'
             },
