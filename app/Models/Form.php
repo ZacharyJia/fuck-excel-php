@@ -4,7 +4,7 @@
  * Time: 16/8/14 上午11:26
  */
 
-namespace app\Models;
+namespace App\Models;
 
 
 use Jenssegers\Mongodb\Eloquent\Model;

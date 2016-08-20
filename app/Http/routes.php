@@ -13,7 +13,7 @@
 */
 
 
-
+Route::get('/', 'IndexController@index');
 Route::get('login', 'LoginController@login');
 Route::post('doLogin', 'LoginController@doLogin');
 Route::get('logout', 'LoginController@logout');

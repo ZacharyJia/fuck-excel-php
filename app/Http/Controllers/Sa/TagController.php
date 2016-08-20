@@ -4,7 +4,7 @@
  * Time: 16/8/13 下午1:52
  */
 
-namespace app\Http\Controllers\Sa;
+namespace App\Http\Controllers\Sa;
 
 
 use App\Http\Controllers\BaseController;
