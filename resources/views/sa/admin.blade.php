@@ -22,7 +22,7 @@
                 success : function(data) {
                     $("#new_username").val(data.username);
                     $("#new_tags").val(data.tags);
-                    $("#admin_id").val(data._id);
+                    $("#admin_id").val(data.id);
                 },
                 error   : function() {
 
@@ -121,8 +121,8 @@
                         @endforeach
                     </td>
                     <td>
-                        <a href="#" class="btn btn-default" data-toggle="modal" data-target="#editAdminModal" onclick="ajax_get_admin_info('{{ $one['_id'] }}')"><span class="glyphicon glyphicon-pencil"></span></a>
-                        <a href="/sa/admins/delete?id={{$one['_id']}}" class="btn btn-default" onclick="return deleteConfirm()"><span class="glyphicon glyphicon-trash"></span></a>
+                        <a href="#" class="btn btn-default" data-toggle="modal" data-target="#editAdminModal" onclick="ajax_get_admin_info('{{ $one['id'] }}')"><span class="glyphicon glyphicon-pencil"></span></a>
+                        <a href="/sa/admins/delete?id={{$one['id']}}" class="btn btn-default" onclick="return deleteConfirm()"><span class="glyphicon glyphicon-trash"></span></a>
                     </td>
                 </tr>
             @endforeach

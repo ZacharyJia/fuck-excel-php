@@ -33,7 +33,7 @@
                 type: 'post',
                 dataType: 'json'
             },
-            pk: '{{ $user['_id'] }}',
+            pk: '{{ $user['id'] }}',
             url: '/admin/users/ajax_save_tags',
             type: 'select2',
             value: "{{ implode($user['tags'], ',') }}",

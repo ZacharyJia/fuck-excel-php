@@ -27,8 +27,8 @@
                             @endforeach
                         </td>
                         <td>
-                            <a href="/admin/users/detail?id={{$one['_id']}}" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></a>
-                            <a href="/admin/users/delete?id={{$one['_id']}}" class="btn btn-default" onclick="return deleteConfirm()"><span class="glyphicon glyphicon-trash"></span></a>
+                            <a href="/admin/users/detail?id={{$one['id']}}" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></a>
+                            <a href="/admin/users/delete?id={{$one['id']}}" class="btn btn-default" onclick="return deleteConfirm()"><span class="glyphicon glyphicon-trash"></span></a>
                         </td>
                     </tr>
                 @endforeach

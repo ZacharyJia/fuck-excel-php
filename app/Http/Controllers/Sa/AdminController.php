@@ -36,7 +36,7 @@ class AdminController extends BaseController
     public function getAdmin(Request $request)
     {
         $id = $request->input('id');
-        $admin = User::where('_id', $id)->first();
+        $admin = User::find($id);
         return $admin->toArray();
     }
 
@@ -67,7 +67,7 @@ class AdminController extends BaseController
     public function delete(Request $request)
     {
         $this->validate($request, [
-            'id' => 'required|exists:user,_id',
+            'id' => 'required|exists:user,id',
         ]);
 
         $user = User::find($request->input('id'));
@@ -81,7 +81,7 @@ class AdminController extends BaseController
     public function edit(Request $request)
     {
         $this->validate($request, [
-            'admin_id' => 'required|exists:user,_id',
+            'admin_id' => 'required|exists:user,id',
             'new_password' => 'min:6|max:32',
             'new_tags' => 'regex:/^[^\,]+(\,[^\,]+)*$/',
         ]);

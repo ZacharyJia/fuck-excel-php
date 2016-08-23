@@ -1,8 +1,8 @@
 <?php
 namespace App\Models;
 
-use Jenssegers\Mongodb\Eloquent\Model;
-use Jenssegers\Mongodb\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Created by zachary
@@ -14,9 +14,11 @@ class User extends Model
 
     private static $user;
 
-    protected $collection = 'user';
+    protected $table = 'user';
 
     protected $hidden = ['password'];
+
+    protected $casts = ['tags' => 'array'];
 
     /**
      * 设置当前用户
