@@ -22,9 +22,13 @@
                     <tr>
                         <td>{{ $one['username'] }}</td>
                         <td>
-                            @foreach($one['tags'] as $tag)
-                                <span class="label label-success">{{ $tag }}</span>
-                            @endforeach
+                            @if($one['tags'])
+                                @foreach($one['tags'] as $tag)
+                                    <span class="label label-success">{{ $tag }}</span>
+                                @endforeach
+                            @else
+                                <small>没有标签</small>
+                            @endif
                         </td>
                         <td>
                             <a href="/admin/users/detail?id={{$one['id']}}" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></a>
