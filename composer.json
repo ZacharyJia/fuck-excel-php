@@ -9,7 +9,8 @@
         "laravel/framework": "5.2.*",
         "barryvdh/laravel-ide-helper": "^2.2",
         "maatwebsite/excel": "~2.1.0",
-        "laravelcollective/bus": "^5.2"
+        "laravelcollective/bus": "^5.2",
+        "hashids/hashids": "^1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

@@ -3,6 +3,11 @@
 define('LARAVEL_START', microtime(true));
 
 /*
+ * 自定义函数
+ */
+require __DIR__.'/../app/Common/functions.php';
+
+/*
 |--------------------------------------------------------------------------
 | Register The Composer Auto Loader
 |--------------------------------------------------------------------------
