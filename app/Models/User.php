@@ -1,24 +1,21 @@
 <?php
-namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
+namespace App\Models;
 
 /**
  * Created by zachary
  * Date: 16/7/31 上午9:32
  */
-class User extends Model
+class User extends BaseModel
 {
-    use SoftDeletes;
-
     private static $user;
 
     protected $table = 'user';
 
     protected $hidden = ['password'];
 
-    protected $casts = ['tags' => 'array'];
+    protected $pgArrays = ['tags'];
+
 
     /**
      * 设置当前用户

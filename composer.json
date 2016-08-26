@@ -10,7 +10,8 @@
         "barryvdh/laravel-ide-helper": "^2.2",
         "maatwebsite/excel": "~2.1.0",
         "laravelcollective/bus": "^5.2",
-        "hashids/hashids": "^1.0"
+        "hashids/hashids": "^1.0",
+        "asmiarowski/laravel-postgres": "~0.1.4"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
