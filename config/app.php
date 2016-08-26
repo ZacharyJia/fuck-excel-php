@@ -162,6 +162,11 @@ return [
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
 
         /*
+         * sendgrid mail driver
+         */
+        Sichikawa\LaravelSendgridDriver\MailServiceProvider::class,
+
+        /*
          * laravel-excel
          */
         Collective\Bus\BusServiceProvider::class,

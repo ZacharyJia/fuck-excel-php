@@ -17,7 +17,9 @@
         "mockery/mockery": "0.9.*",
         "phpunit/phpunit": "~4.0",
         "symfony/css-selector": "2.8.*|3.0.*",
-        "symfony/dom-crawler": "2.8.*|3.0.*"
+        "symfony/dom-crawler": "2.8.*|3.0.*",
+        "guzzlehttp/guzzle": "~5.3|~6.0",
+        "s-ichikawa/laravel-sendgrid-driver": "~1.0.0"
     },
     "autoload": {
         "classmap": [
