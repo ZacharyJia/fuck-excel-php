@@ -12,30 +12,21 @@ class CreateTableUser extends Migration
      */
     public function up()
     {
-        Schema::create('user', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('username', 100);
-            $table->string('password', 150);
-            $table->string('type', 20);
-            $table->json('extra_data')->nullable();
-            $table->json('tags')->nullable();
-            $table->timestamps();
-            $table->softDeletes();
-        });
+        $sql = <<<SQL
+CREATE TABLE "users" (
+    id integer NOT NULL,
+    username character varying(100) NOT NULL,
+    password character varying(150) NOT NULL,
+    type character varying(20) NOT NULL,
+    tags character varying(50)[],
+    extra_data json,
+    created_at timestamp(0) without time zone,
+    updated_at timestamp(0) without time zone,
+    deleted_at timestamp(0) without time zone
+);
+SQL;
+        DB::statement($sql);
 
-        $sa = new \App\Models\User();
-        $sa['username'] = 'jia199474';
-        $sa['password'] = 'jiazequn';
-        $sa['type'] = 'sa';
-        $sa['tags'] = ['jia199474', 'jk1301'];
-        $sa->save();
-
-        $admin = new \App\Models\User();
-        $admin['username'] = 'admin';
-        $admin['password'] = 'admin888';
-        $admin['type'] = 'admin';
-        $admin['tags'] = ['admin', 'jk1301'];
-        $admin->save();
     }
 
     /**

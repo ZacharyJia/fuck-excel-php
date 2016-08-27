@@ -23,7 +23,7 @@ class UserController extends BaseController
 
     public function index()
     {
-        $user_list = User::where('type', 'user')->paginate(10);
+        $user_list = User::whereUserContainsTags(['jk1301'])->paginate(10);
 
         return view('admin.users', ['user_list' => $user_list]);
     }
