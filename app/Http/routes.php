@@ -39,7 +39,7 @@ Route::group([
     'middleware' => 'auth:user',
     'prefix'     => 'user',
 ], function (){
-
+    Route::get('home', 'User\HomeController@index');
 });
 
 //这里是需要鉴权为admin的
