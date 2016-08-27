@@ -7,6 +7,8 @@
 namespace App\Http\Controllers\Admin;
 
 
+use App\Exceptions\AjaxException;
+use App\Exceptions\RedirectException;
 use App\Http\Controllers\BaseController;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -44,6 +46,8 @@ class UserController extends BaseController
 
     public function ajax_get_tags(Request $request) {
         $user_id = $request->input('id');
+
+        $this->checkAjaxPermission($user_id, 'user');
         $user = User::find($user_id);
         return json_encode(['tags' => $user['tags']]);
     }
@@ -51,6 +55,8 @@ class UserController extends BaseController
     public function ajax_save_tags(Request $request) {
         $user_id = $request->input('pk');
         $tags = $request->input('value');
+
+        $this->checkAjaxPermission($user_id, 'user');
         $user = User::find($user_id);
 
         // todo 需要验证是否符合要求

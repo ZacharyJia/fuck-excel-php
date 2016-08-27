@@ -31,7 +31,7 @@ class LoginController extends BaseController
             $user = User::where('username', $username)->where('password', $password)->first();
             if ($user !== null) {
                 $this->setMsg('登录成功');
-                Session::set('user', $user->toArray());
+                Session::set('user', $user);
                 return redirect('/' . $user->type . '/home');
             } else {
                 $this->setMsg('用户名或密码错误', 'error');

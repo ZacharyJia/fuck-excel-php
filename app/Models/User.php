@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Models;
-use phpDocumentor\Reflection\Types\Self_;
 
 /**
  * Created by zachary
@@ -42,7 +41,7 @@ class User extends BaseModel
 
     /**
      * 查找与给定tags有交集的用户
-     * 即查找管理员可以管理的普通用户用户
+     * 即查找管理员可以管理的普通用户
      * @param $tags
      * @param string $type
      * @return

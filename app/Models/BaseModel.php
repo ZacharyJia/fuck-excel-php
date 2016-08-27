@@ -51,6 +51,10 @@ class BaseModel extends Model
         return parent::__get($key);
     }
 
+    /**
+     * 将Model转换为array的时候,对pgArray类型做特殊处理
+     * @return array
+     */
     public function toArray()
     {
         $arr = parent::toArray();
