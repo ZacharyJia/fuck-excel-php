@@ -29,6 +29,9 @@ class BaseModel extends Model
     public function __set($key, $value)
     {
         if (in_array($key, $this->pgArrays)) {
+            if ($value === null) {
+                $value = [];
+            }
             $this->attributes[$key] = self::mutateToPgArray($value);
         } else {
             parent::__set($key, $value);
